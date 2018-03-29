@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制图层滚动速度</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 1000px;
+            z-index: 10;
+        }
+
+        .container div {
+            position: fixed;
+            width: 100%;
+            height: 1000px;//这个是重点.规定死高度.要是写成100%的话就会超出范围了...
+            background-position: bottom center;
+            background-size: auto 1038px;//图片大小：左右auto上下1038 不过好像没有什么用...
+            background-repeat: repeat-x;
+
+        }
+
+        .addheight {
+            width: 100%;
+            height: 800px;
+            z-index: 999;
+            background-color: #210002;
+            position: relative;
+        }
+
+        .a1 {
+            background: url("./images/parallax0.png") no-repeat;
+        }
+
+        .a2 {
+            background: url("./images/parallax1.png") no-repeat;
+        }
+
+        .a3 {
+            background: url("./images/parallax2.png") no-repeat;
+        }
+
+        .a4 {
+            background: url("./images/parallax3.png") no-repeat;
+        }
+
+        .a5 {
+            background: url("./images/parallax4.png") no-repeat;
+        }
+
+        .a6 {
+            background: url("./images/parallax5.png") no-repeat;
+        }
+
+        .a7 {
+            background: url("./images/parallax6.png") no-repeat;
+        }
+
+        .a8 {
+            background: url("./images/parallax7.png") no-repeat;
+        }
+
+        .a9 {
+            background: url("./images/parallax8.png") no-repeat;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="a1">
+    </div>
+    <div class="a2"></div>
+    <div class="a3"></div>
+    <div class="a4"></div>
+    <div class="a5"></div>
+    <div class="a6"></div>
+    <div class="a7"></div>
+    <div class="a8"></div>
+    <div class="a9"></div>
+</div>
+<div class="addheight"></div>
+</body>
+<script src="js/jquery-1.8.2.min.js"></script>
+<script>
+    //    $(window).scroll(function () {
+    //        var scrolled = $(this).scrollTop();
+    //        $("#parallax_area1").css("top", (0 - scrolled * 0.75) + "px");
+    //        $("#parallax_area2").css("top", (0 - scrolled * 0.5) + "px");
+    //        $("#parallax_area3").css("top", (0 - scrolled * 0.25) + "px");
+    //    });
+    $(window).scroll(function () {
+        var scrolled = $(this).scrollTop();
+        $(".a1").css("top", (0 - scrolled * 0.02) + "px");
+        $(".a2").css("top", (0 - scrolled * 0.05) + "px");
+        $(".a3").css("top", (0 - scrolled * 0.11) + "px");
+        $(".a4").css("top", (0 - scrolled * 0.16) + "px");
+        $(".a5").css("top", (0 - scrolled * 0.26) + "px");
+        $(".a6").css("top", (0 - scrolled * 0.36) + "px");
+        $(".a7").css("top", (0 - scrolled * 0.49) + "px");
+        $(".a8").css("top", (0 - scrolled * 0.69) + "px");
+        $(".a9").css("top", (0 - scrolled * 1) + "px");
+    })
+</script>
+</html>
